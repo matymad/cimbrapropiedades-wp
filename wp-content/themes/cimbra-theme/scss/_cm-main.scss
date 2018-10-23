@@ -769,6 +769,9 @@ a.button.naked {
     height: 32px;
     @include flex-col-center;
   } 
+  .cm-footer-logo{
+    margin-right: 0px!important;
+  }
 }
 
 .direct{
