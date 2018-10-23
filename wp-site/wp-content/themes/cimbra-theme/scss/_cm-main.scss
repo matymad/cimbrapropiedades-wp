@@ -1,0 +1,1208 @@
+//FONTS
+@import url('https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,500,600,700,800,900');
+
+h1, h2, h3, h4, h5, h6, p, article, section, {
+  margin: 0;
+  padding: 0;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  padding-right: 0px;
+  padding-left: 0px;
+  padding-bottom: 0px;
+  padding-top: 0px;
+  -webkit-margin-start: 0;
+  -webkit-margin-end: 0;
+  -webkit-padding-start: 0;
+  -webkit-padding-end: 0;
+}
+
+body {
+  font-family: 'Work Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  //ANTIALIASING TRICKS
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
+  font-variant-ligatures: none;
+  -webkit-font-variant-ligatures: none;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased;
+  text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
+  width: 100vw;
+  overflow-x: hidden;
+  * {
+    box-sizing: border-box!important;
+  }
+}
+
+.cm-section-title {
+  color: $black;
+  @include font($defaultFamily, 60px, 600);
+  text-align: center;
+}
+
+a.button{
+  @include flex-row-center;
+  @include font($defaultFamily, 14px, 400);
+  color: $white;
+  text-transform: uppercase;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  min-height: 32px;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 4px;
+  @include animate;
+  &.highlight {
+    background-color: $color-1;
+    &:hover{
+      background-color: lighten($color-1, 10%);
+    }
+  }
+  &.normal{
+    background-color: $color-2;
+    &:hover{
+      background-color: lighten($color-2, 10%);
+    }
+  }
+  &.facebook {
+    background-color: $fb;
+    &:hover{
+      background-color: lighten($fb, 10%);
+    }
+  }
+  &.twitter {
+    background-color: $tw;
+    &:hover{
+      background-color: lighten($tw, 10%);
+    }
+  }
+  &.whatsapp {
+    background-color: $ws;
+    &:hover{
+      background-color: lighten($ws, 10%);
+    }
+  }
+}
+
+//NAVBAR
+nav.cm-main-nav{
+  width: 100%;
+  height: 100px;
+  background-color: $black;
+  padding: 0px 40px 0px 40px;
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  @include flex-row-center;
+  justify-content: space-between;
+  @media #{$sm}{
+    justify-content: start;
+    width: 100vw;
+    padding: 0px 20px 0px 0px;
+    &:after {
+      font-family: 'Font Awesome\ 5 Free'!important;
+      width: 42px;
+      height: 42px;
+      background-color: $black;
+      color: $white;
+      font-size: 24px;
+      font-weight: 600;
+      position: fixed;
+      left: 0px;
+      top: 28px;
+      @include flex-row-center;
+      content: '\f0c9';
+      cursor: pointer;
+    }
+  }
+  img {
+    height: 56px;
+    width: auto;
+    @media #{$sm}{
+      height: 36px;
+      padding-left: 42px;
+      z-index: 1;
+    }
+  }
+  .cm-nav-wrapper{
+    ul.cm-social-nav {
+      @include clean-list;
+      @media #{$sm}{
+        flex-wrap: wrap;
+        width: 80px;
+        position: fixed;
+        right: 20px;
+        top: 18px;
+        position: relative;
+      }
+      li.cm-social-item{
+        height: 32px;
+        color: $white;
+        margin-right: 10px;
+        box-sizing: border-box;
+        @media #{$sm}{
+          margin-right: 0px;
+          position: absolute;
+        }
+        &:last-of-type{
+          margin-right: 0;
+        }
+        &:first-of-type{
+          @media #{$sm}{
+            a {
+              font-size: 0px;
+              i {
+                font-size: 14px;
+              }
+            }
+          }
+        }
+        &:nth-of-type(1){
+          @media #{$sm}{
+            border-right: 1px solid rgba($white, 0.125);
+            top: 20px;
+            left: calc(100vw - 80px)!important;
+            position: fixed;
+          }
+        }
+        &:nth-of-type(2){
+          @media #{$sm}{
+            top: -48px;
+            right: -32px;
+          }
+        }
+        &:nth-of-type(3){
+          @media #{$sm}{
+            border-top: 1px solid rgba($white, 0.125);
+            border-right: 1px solid rgba($white, 0.125);
+          }
+        }
+        &:nth-of-type(4){
+          @media #{$sm}{
+            border-top: 1px solid rgba($white, 0.125);
+            right: -32px;
+          }
+        }
+        a {
+          color: $white;
+          text-decoration: none;
+          @include font($defaultFamily, 14px, 400);
+          @include flex-row-center;
+          i {
+            margin-right: 5px;
+            @include flex-col-center;
+            height: 32px;
+            width: 32px;
+            @media #{$sm}{
+              margin-right: 0px;
+            }
+          }
+        }
+      }
+    }
+    ul.cm-link-nav{
+      @include clean-list;
+      margin-bottom: -21px;
+      margin-top: 10px;
+      height: auto;
+      @media #{$sm}{
+        background-color: $white;
+        position: fixed;
+        top: 90px;
+        left: 0px;
+        flex-direction: column;
+        width: 100vw;
+        box-sizing: border-box;
+        overflow: hidden;
+        height: 0px;
+      }
+      li.cm-link-item {
+        margin-right: 10px;
+        border-bottom: 4px solid transparent;
+        @media #{$sm}{
+          margin-right: 0px;
+          width: 100%;
+          border-bottom: 1px solid rgba($black, 0.125);
+        }
+        &:last-of-type{
+          margin-right: 0px;
+        }
+        a {
+          color: $white;
+          text-decoration: none;
+          height: 32px;
+          @include flex-row-center;
+          box-sizing: border-box;
+          @include font($defaultFamily, 14px, 400);
+          @media #{$sm}{
+            color: $black;
+            height: 48px;
+          }
+        }
+        &.active {
+          border-bottom: 4px solid $color-1;
+          @media #{$sm}{
+            background-color: $color-1;
+            a {
+              color: $white;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+//SLIDER
+
+.cm-slider-wrapper {
+  height: 600px;
+  width: 100%;
+  @media #{$sm}{
+    height: 60vh;
+  }
+  ul.cm-list-slider {
+    height: 100%;
+    width: 100%;
+    @include clean-list;
+    position: relative;
+    li.cm-item-slider {
+      top: 0px;
+      left: 0px;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      opacity: 0;
+      @include flex-col-center;
+      @include animate;
+      background: {
+        size: cover;
+        position: center;
+        repeat: no-repeat;
+      }
+      &.active {
+        z-index: 0;
+        opacity: 1;
+      }
+      &:nth-of-type(1){
+        background-image: url('../img/homebanner.jpg');
+      }
+      &:nth-of-type(2){
+        background-image: url('../img/homebanner.jpg');
+      }
+      &:nth-of-type(3){
+        background-image: url('../img/homebanner.jpg');
+      }
+      .cm-slider-content {
+        width: 100%;
+        box-sizing: border-box;
+        padding-left: 40px;
+        padding-right: 40px;
+        h2 {
+          color: $white;
+          @include font($defaultFamily, 60px, 600);
+          margin-bottom: 40px;
+          @media #{$sm}{
+            font-size: 32px;
+            padding-top: 33px;
+            margin-bottom: 0px;
+          }
+        }
+        article.cm-banner-art{
+          height: 60px;
+          padding-right: 10px;
+          @include flex-row-center;
+          justify-content: flex-start;
+          background-color: rgba($white, 0.25);
+          margin-right: 40px;
+          border-radius: 30px 0px 0px 30px;
+          @media #{$sm}{
+            display: none;
+          }
+          &:last-of-type{
+            margin-right: 0px;
+          }
+          .cm-banner-art-icon {
+            width: 60px;
+            height: 60px;
+            background-color: $white;
+            border-radius: 100%;
+            margin-right: 20px;
+            @include flex-row-center;
+            img {
+              width: 36px;
+              height: auto;
+            }
+          }
+          p {
+            @include font($defaultFamily, 16px, 300);
+            color: $white;
+          }
+        }
+      }
+    }
+    ol.cm-slider-buttons{
+      @include clean-list;
+      position: absolute;
+      bottom: 20px;
+      left: calc(50% - 40px);
+      li.cm-slider-button {
+        display: inline-block;
+        height: 20px;
+        width: 20px;
+        border-radius: 100%;
+        background-color: $white;
+        margin-right: 10px;
+        cursor: pointer;
+        &:last-of-type{
+          margin-right: 0px;
+        }
+        &.active {
+          background-color: $black;
+        }
+      }
+    }
+  }
+}
+
+// UF 
+.cm-uf-band {
+  width: 100%;
+  background-color: $color-2;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 40px;
+  padding-right: 40px;
+  box-sizing: border-box;
+  color: $white;
+  @include font($defaultFamily, 14px, 400);
+  @media #{$sm}{
+    font-size: 12px;
+    text-align: center;
+  }
+}
+
+//SERVICE HOME 
+section.cm-services{
+  padding-top: 40px;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 80px;
+  @media #{$sm}{
+    padding-bottom: 20px;
+  }
+  .cm-section-title {
+    margin-bottom: 80px;
+    @media #{$sm}{
+      font-size: 32px;
+      margin-bottom: 30px;
+    }
+  }
+  .cm-service-flex {
+    align-items: flex-start!important;
+    @media #{$sm}{
+      flex-direction: column;
+      align-items: center!important;
+    }
+  }
+  .cm-serv-article{
+    margin-right: 40px;
+    @media #{$sm}{
+      margin-right: 0px;
+      margin-bottom: 20px;
+    }
+    &:last-of-type{
+      margin-right: 0px;
+      @media #{$sm}{
+        margin-bottom: 0px;
+      }
+    }
+    .cm-img-container {
+      height: 200px;
+      width: 200px;
+      overflow: hidden;
+      > img {
+        @include flex-col-center;
+        width: auto;
+        height: 100%;
+        border: 1px solid $white;
+      }
+    }
+    h3 {
+      color: $black;
+      @include font($defaultFamily, 18px, 600);
+      margin-bottom: 10px;
+      margin-top: 20px;
+      max-width: 350px;
+    }
+    p {
+      color: $black;
+      @include font($defaultFamily, 12px, 400);
+      margin-bottom: 10px;
+      max-width: 350px;
+    }
+    a.button.naked {
+      align-self: center;
+    }
+  }
+}
+
+//SHOWCASE
+
+.cm-showcase{
+  box-sizing: border-box;
+  padding-right: 40px;
+  padding-left: 40px;
+  padding-top: 80px;
+  padding-bottom: 80px;
+  @media #{$sm}{
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .cm-section-title{
+    @media #{$sm}{
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+  }
+  a.button{
+    margin-right: 10px;
+    @media #{$sm}{
+      font-size: 12px;
+    }
+    &:last-of-type{
+      margin-right: 0;
+    }
+  }
+  .cm-buttons-showcase {
+    @media #{$sm}{
+      flex-direction: column;
+    }
+  }
+  .cm-showcase-flex {
+    position: relative;
+    margin: 0 auto;
+    margin-top: 80px;
+    flex-wrap: wrap;
+    max-width: 1120px;
+    @media #{$sm}{
+      margin-top: 20px;
+    }
+    //HIGHLIGHTED PROPIERTY 
+    .cm-highlight-property {
+      width: 350px;
+      height: 350px;
+      margin: 10px;
+      border: 1px solid rgba($black, 0.25);
+      position: relative;
+      background: {
+        image: url('../img/propierty.jpg');
+        size: cover;
+        position: center;
+        repeat: no-repeat;
+      }
+      span {
+        @include flex-row-center;
+        position: absolute;
+        right: 0;
+        top: 0;
+        background-color: $black;
+        color: $white;
+        @include font($defaultFamily, 13px, 400);
+        box-sizing: border-box;
+        max-width: 90%;
+        @include text-overflow;
+        padding: 5px 10px 5px 10px;
+      }
+      .cm-block-h-property {
+        background-color: $white;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        box-sizing: border-box;
+        padding: 10px;
+        h4 {
+          @include font($defaultFamily, 12px, 500);
+          margin-bottom: 5px;
+          color: $black;
+        }
+        p {
+          @include font($defaultFamily, 12px, 400);
+          color: $black;
+        }
+        a.button.naked {
+          margin-top: 10px;
+        }
+      }
+    }
+  }
+  &.page {
+    padding-top: 130px;
+    .cm-nav-pages{
+      margin-top: 40px;
+      a.button.naked{
+        height: 20px;
+        min-width: 20px;
+        min-height: 20px;
+        text-transform: initial;
+        &.active{
+          border-radius: 2px;
+          background-color: $color-1;
+          color: $white;
+          @include animate;
+          &:hover{
+            background-color: lighten($color-1, 10%);
+          }
+        }
+      }
+    }
+  }
+}
+
+a.button.naked {
+  @include flex-row-center;
+  align-self: flex-end;
+  color: $color-1;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  @include font($defaultFamily, 12px, 500);
+  img {
+    border-radius: 4px;
+    height: 14px;
+    width: 14px;
+    margin-top: -2px;
+    background-color: $color-1;
+  }
+}
+
+.cm-contact {
+  box-sizing: border-box;
+  padding-right: 80px;
+  padding-left: 40px;
+  background: {
+    image: url('../img/contact-bg.jpg');
+    size: cover;
+    position: center;
+    repeat: no-repeat;
+  }
+  min-height: 630px;
+  @media #{$sm}{
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .cm-flex-contact {
+    align-items: flex-start!important;
+    @media #{$sm}{
+      flex-direction: column;
+      align-items: center!important;
+    }
+  }
+  h2 {
+    color: $white;
+    @include font($defaultFamily, 48px, 600);
+    max-width: 50%;
+    margin-top: 40px;
+    @media #{$sm}{
+      font-size: 32px;
+      max-width: initial;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+  }
+  form.cm-contact-form {
+    background-color: rgba($white, 0.35);
+    padding: 20px;
+    box-sizing: border-box;
+    width: 350px;
+    height: 630px;
+    position: relative;
+    @media #{$sm}{
+      padding: 10px 10px 50px 10px;
+      width: auto;
+      margin: 20px 10px 40px 10px;
+      height: auto;
+
+    }
+    h4 {
+      color: $white;
+      @include font($defaultFamily, 16px, 600);
+      margin-top: 80px;
+      margin-bottom: 40px;
+      text-transform: uppercase;
+      width: 100%;
+      text-align: left;
+      @media #{$sm}{
+        margin-top: 20px;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+    }
+    .cm-flex-form {
+      width: 100%;
+      margin-bottom: 10px;
+      &:last-of-type{
+        margin-bottom: 0px;
+      }
+      @media #{$sm}{
+        flex-direction: column;
+      }
+      label {
+        color: $white;
+        @include font($defaultFamily, 12px, 400);
+        text-align: right;
+        margin-right: 20px;
+        @media #{$sm}{
+          margin-right: 0px;
+          text-align: center;
+          width: 100%;
+          margin-bottom: 5px;
+        }
+      }
+      input, textarea {
+        width: 230px;
+        border: 1px solid $white;
+        background-color: transparent;
+        border-radius: 2px;
+        box-sizing: border-box;
+        color: $white;
+        @include font($defaultFamily, 12px, 400);
+        &:focus {
+          background-color: $white;
+          color: $black;
+        }
+        @media #{$sm}{
+          width: 100%;
+        }
+      }
+      input {
+        height: 28px;
+        padding-left: 10px;
+        padding-right: 10px;
+        @include flex-row-center;
+      }
+      textarea {
+        padding: 10px;
+      }
+    }    
+    a.button.normal{
+      margin-top: 10px;
+    }
+    span.cm-note {
+      box-sizing: border-box;
+      width: 100%;
+      background-color: $white;
+      padding: 5px;
+      color: $black;
+      @include font($defaultFamily, 11px, 400);
+      text-align: center;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+  }
+}
+
+.cm-footer {
+  background-color: $black;
+  padding: 40px;
+  box-sizing: border-box;
+  @media #{$sm}{
+    padding: 20px;
+    flex-direction: column-reverse!important;
+    justify-content: center!important;
+  }
+  .flex.col.start{
+    @media #{$sm}{
+      align-items: center;
+    }
+  }
+  img {
+    width: 250px;
+    @media #{$sm}{
+      margin-top: 20px;
+      margin-bottom: 40px;
+      width: 200px;
+    }
+  }
+  p, a {
+    color: $white;
+    @include font($defaultFamily, 14px, 400);
+    @media #{$sm}{
+      font-size: 12px;
+    }
+  }
+  i {
+    color: $white;
+    &.fa-envelope, &.fa-phone {
+      margin-right: 5px;
+    }
+    @media #{$sm}{
+      font-size: 18px;
+    }
+  }
+  a {
+    @include clean-href;
+    color: $white!important;
+    margin-right: 20px!important;
+    @media #{$sm}{
+      font-size: 0px;
+    }
+    &:last-of-type {
+      margin-right: 0px;
+    }
+  }
+  .cm-link {
+    width: 32px;
+    height: 32px;
+    @include flex-col-center;
+  } 
+}
+
+.direct{
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+
+//PROPIERTY PAGE
+
+.cm-noslider-wrapper {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 80px;
+  height: 630px;
+  position: relative;
+  &.propierty{
+    background: {
+      size: cover;
+      position: center;
+      repeat: no-repeat;
+      image: url('../img/propierty-banner.jpg');
+    }
+    .cm-flex-propierty-noslider{
+      background-color: rgba($black, 0.5);
+      padding: 20px;
+      position: absolute;
+      bottom: 120px;
+      left: 0px;
+      h2 {
+        color: $white;
+        @include font($defaultFamily, 48px, 300);
+        margin-bottom: 20px;
+        text-align: left;
+        @media #{$sm}{
+          font-size: 32px;
+        }
+      }
+      p {
+        color: $white;
+        @include font($defaultFamily, 16px, 400);
+        @media #{$sm}{
+          font-size: 12px;
+        }
+        span {
+          display: block;
+          margin-bottom: 10px;
+          @include font($defaultFamily, 16px, 500);
+          @media #{$sm}{
+            font-size: 12px;
+          }
+        }
+      }
+    }
+  }
+  &.tasacion {
+    background-image: url('../img/tasacion-banner.jpg');
+  }
+  &.ventaarriendo{
+    background-image: url('../img/ventaarriendo-banner.jpg');
+  }
+  &.corretaje {
+    background-image: url('../img/corretaje-banner.jpg');
+  }
+  &.requisitos {
+    background-image: url('../img/requisitos-banner.jpg');
+  }
+  &.service {
+    height: 630px;
+    background: {
+      size: cover;
+      position: center;
+      repeat: no-repeat;
+    } 
+    box-sizing: border-box;
+    padding: 40px;
+    padding-top: 210px;
+    @media #{$sm}{
+      height: 480px;
+      padding: 140px 20px 40px 20px;
+    }
+    h2 {
+      @include font($defaultFamily, 48px, 600);
+      color: $white;
+      margin-bottom: 20px;
+      @media #{$sm}{
+        font-size: 32px;
+      }
+    }
+    p {
+      @include font($defaultFamily, 16px, 400);
+      color: $white;
+      padding: 10px;
+      background-color: rgba($white, 0.25);
+      max-width: 600px;
+      margin-bottom: 20px;
+      @media #{$sm}{
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+.cm-propierty-page{
+  padding: 40px;
+  box-sizing: border-box;
+  @media #{$sm}{
+    padding: 20px;
+  }
+  > a.button.naked {
+    text-transform: initial;
+    align-self: start;
+    i {
+      margin-right: 5px;
+    }
+  }
+  h2 {
+    color: $black;
+    @include font($defaultFamily, 48px, 600);
+    margin-bottom: 40px;
+    @media #{$sm}{
+      font-size: 32px;
+    }
+  }
+  .cm-flex-property{
+    margin: 0 auto;
+    align-items: flex-start!important;
+    @media #{$sm}{
+      flex-direction: column!important;
+      align-items: center!important;
+      margin: initial;
+    }
+  }
+  .cm-container-propierty-images {
+    width: 500px;
+    height: 500px;
+    @media #{$sm}{
+      width: 250px;
+      height: 250px;
+    }
+    position: relative;
+    background: {
+      image: url('../img/propierty.jpg');
+      size: cover;
+      position: center;
+      repeat: no-repeat;
+    }
+    .cm-propierty-carrousel{
+      background-color: rgba($white, 0.5);
+      position: absolute;
+      padding: 10px;
+      bottom: 0px;
+      left: 0px;
+      width: 100%;
+      box-sizing: border-box;
+      ul {
+        @include clean-list;
+        width: 100%;
+        li {
+          @include clean-list;
+          height: 40px;
+          width: 40px;
+          background: {
+            image: url('../img/propierty.jpg');
+            size: cover;
+            position: center;
+            repeat: no-repeat;
+          }
+          opacity: 0.75;
+          border: 2px solid transparent;
+          margin-right: 10px;
+          cursor: pointer;
+          @include animate;
+          &:last-of-type {
+            margin-right: 0px;
+          }
+          &:hover {
+            opacity: 1;
+            border: 2px solid $color-1;
+          }
+          &.active {
+            opacity: 1;
+            border: 2px solid $white;
+          }
+        }
+      }
+    }
+  }
+  .cm-property-info {
+    width: 400px;
+    margin-left: 20px;
+    @media #{$sm}{
+      width: auto;
+      margin-left: 0px;
+      align-items: center!important;
+    }
+    .cm-price-uf {
+      color: $black;
+      @include font($defaultFamily, 48px, 600);
+    }
+    .cm-price {
+      color: $black;
+      @include font($defaultFamily, 18px, 500);
+      margin-bottom: 10px;
+    }
+    .cm-buttons-property {
+      position: relative;
+      @media #{$sm}{
+        flex-direction: column;
+      }
+      .cm-social {
+        @media #{$sm}{
+          margin-top: 30px;
+        }
+      }
+      p {
+        position: absolute;
+        text-transform: uppercase;
+        top: -25px;
+        right: 60px;
+        @include font($defaultFamily, 12px, 500);
+        @media #{$sm}{
+          top: 44px;
+          right: 80px;
+        }
+      }
+      a.button{
+        &.normal{
+          width: 200px;
+        }
+        &.whatsapp, &.facebook, &.twitter{
+          padding-left: 0px;
+          padding-right: 0px;
+          padding-top: 0px;
+          padding-bottom: 0;
+          width: 36px;
+          height: 36px;
+          margin-left: 10px;
+          i {
+            font-size: 18px;
+          }
+        }
+      }
+    }
+    h5 {
+      margin-top: 20px;
+      margin-bottom: 10px;
+      @include font($defaultFamily, 18px, 500);
+      color: $black;
+    }
+    .cm-text-propierty{
+      @include font($defaultFamily, 12px, 400);
+      color: $black;
+    }
+  }
+  .cm-propierty-badges{
+    width: 350px;
+    flex-wrap: wrap;
+    @media #{$sm}{
+      width: auto;
+    }
+    .cm-resume {
+      margin: 10px;
+      width: 150px;
+    }
+    .cm-propierty-badge{
+      width: 48px;
+      height: 48px;
+      background-color: $color-1;
+      border-radius: 100%;
+      @include flex-col-center;
+      img {
+        width: 40px;
+        height: auto;
+      }
+    }
+    span {
+      @include font($defaultFamily, 12px, 300);
+      color: $black;
+      margin-left: 10px;
+    }
+  }
+}
+
+// SERVICE 
+.cm-service-features{
+  box-sizing: border-box;
+  padding: 40px 40px 80px 40px;
+  background-color: darken($white, 5%);
+  @media #{$sm}{
+    padding: 20px 20px 40px 20px;
+  }
+  h3 {
+    @include font($defaultFamily, 48px, 600);
+    color: $black;
+    margin-bottom: 40px;
+    @media #{$sm}{
+      font-size: 32px;
+    }
+  }
+  .cm-serv-feat-wrapper {
+    margin-bottom: 40px;
+    ul {
+      @include clean-list;
+      width: 600px;
+      @media #{$sm}{
+        width: initial;
+      }
+      li {
+        @include clean-list;
+        padding-left: 40px;
+        position: relative;
+        margin-bottom: 20px!important;
+        @include flex-row-center;
+        @media #{$sm}{
+          font-size: 12px;
+        }
+        &:last-of-type{
+          margin-bottom: 0px!important;
+        }
+        &:before {
+          width: 36px;
+          height: 36px;
+          position: absolute;
+          left: 0px;
+          top: 0px;
+          content: '';
+          background-image: url('../img/icon-check.svg');
+          background: {
+            size: 24px auto;
+            position: center;
+            repeat: no-repeat;
+          }
+        }
+      }
+    }
+  }
+}
+
+//SERVICE EXPAND
+.cm-service-expand {
+  overflow: hidden;
+  background-color: $black;
+  position: relative;
+  @media #{$sm}{
+    flex-direction: column!important;
+  }
+  &:before{
+    position: absolute;
+    left: calc(50vw - 100px);
+    top: 0px;
+    width: 0;
+    height: 0;
+    content: '';
+    border-bottom: 800px solid $black;
+    border-left: 100px solid transparent;
+    @media #{$sm}{
+      display: none;
+    }
+  }
+  .cm-service-exp-img {
+    width: 50%;
+    height: 500px;
+    @media #{$sm}{
+      width: 100%;
+    }
+    background: {
+      size: cover;
+      position: center;
+      repeat: no-repeat;
+      image: url('../img/tasaciones-2.jpg');
+    }
+    &.ventaarriendo {
+      background-image: url('../img/ventaarriendo-banner.jpg');
+    }
+    &.corretaje {
+      background-image: url('../img/corretaje-banner.jpg');
+    }
+  }
+  .cm-service-article{
+    position: relative;
+    width: 50%;
+    background-color: $black;
+    padding: 80px 20px 80px 20px;
+    @media #{$sm}{
+      width: 100%;
+      padding: 40px 20px 40px 20px;
+      box-sizing: border-box;
+    }
+    h4 {
+      @include font($defaultFamily, 48px, 600);
+      color: $white;
+      margin-bottom: 40px;
+    }
+    h5 {
+      @include font($defaultFamily, 24px, 600);
+      color: $white;
+      margin-bottom: 20px;
+    }
+    p {
+      @include font($defaultFamily, 12px, 400);
+      color: $white;
+    }
+  }
+}
+
+//REQUIRED  
+.cm-required-features{
+  box-sizing: border-box;
+  padding: 40px 40px 80px 40px;
+  background-color: darken($white, 5%);
+  h3 {
+    @include font($defaultFamily, 48px, 600);
+    color: $black;
+    margin-bottom: 40px;
+    @media #{$sm}{
+      font-size: 32px;
+    }
+  }
+  .cm-article-required {
+    column-count: 2;
+    column-gap: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    @media #{$sm}{
+      column-count: 1;
+      max-width: initial;
+    }
+    p {
+      @include font($defaultFamily, 12px, 400);
+      color: $black;
+      text-align: justify;
+    }
+  }
+  a.button {
+    margin-top: 40px;
+  }
+}
