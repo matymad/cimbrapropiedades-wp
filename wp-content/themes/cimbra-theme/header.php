@@ -22,19 +22,19 @@
       </a>
       <div class="cm-nav-wrapper flex col end">
         <ul class="cm-social-nav flex row end">
-          <li class="cm-social-item flex row end"><a href="tel:+5698g9029333"><i class="fas fa-phone"></i>+56 9 89029333</a></li>
+          <li class="cm-social-item flex row end"><a href="tel:+56989029333"><i class="fas fa-phone"></i>+56 9 89029333</a></li>
           <li class="cm-social-item"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
           <li class="cm-social-item"><a href="#"><i class="fab fa-twitter"></i></a></li>
           <li class="cm-social-item"><a href="#"><i class="fab fa-instagram"></i></a></li>
         </ul>
         <!-- MAIN NAVIGATION START -->
         <?php
-          $args = array(
+          $headerMenu = array(
             'theme_location' => 'header-menu',
             'container' => false,
             'items_wrap' => '<ul class="cm-link-nav flex row end">%3$s</ul>',
           );
-          wp_nav_menu( $args );
+          wp_nav_menu( $headerMenu );
         ?>
         <!-- MAIN NAVIGATION END -->
       </div>

@@ -14,7 +14,34 @@
     register_nav_menus(array(
       'header-menu' => __('Header Menu', 'cimbra'),
       'social-menu' => __('Social Menu', 'cimbra'),
+      'footer-social-menu' => __('Footer Social Menu', 'cimbra'),
+      'footer-contact-menu' => __('Footer Contact Menu', 'cimbra'),
     ));
   }
   add_action('init', 'cimbraMenus');
+
+  //CUSTOM ATTRIBUTES FOR MENU LINKS
+  function add_menu_atts( $atts, $item, $args ) {
+    if( $args->theme_location == 'header-menu' ) {
+      $atts['data-scroll'] = 'true';
+    }
+    if ( $args->theme_location == 'footer-social-menu' ){
+      $atts['class'] = 'cm-link';
+    }
+    return $atts;
+  }
+  add_filter('nav_menu_link_attributes', 'add_menu_atts', 10, 3 );
+  
+  //CUSTOM CLASSES FOR MENU LINKS
+  function classCustomMenu($classes, $item, $args) {
+    if($args->theme_location == 'footer-contact-menu') {
+      $classes[] = 'flex row start';
+    }
+    if($args->theme_location == 'header-menu'){
+      $classes[] = 'cm-link-item';
+    }
+    return $classes;
+  }
+  add_filter('nav_menu_css_class', 'classCustomMenu', 1, 3);
+  
 ?>

@@ -764,6 +764,11 @@ a.button.naked {
       margin-right: 0px;
     }
   }
+  li {
+    @include clean-list;
+    @include clean-webkit;
+    @include zero-soft;
+  }
   .cm-link {
     width: 32px;
     height: 32px;
