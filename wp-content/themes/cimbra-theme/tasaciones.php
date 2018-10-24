@@ -1,6 +1,6 @@
 <?php
   /*
-  * Template Name: Corretaje Template
+  * Template Name: Tasaciones Template
   * Template Post Type: post, page, product
   */
   get_header();
@@ -37,11 +37,6 @@
   $content = str_replace(']]>', ']]&gt;', $content);
 ?>
 
-<?php 
-  global $post;
-  $post_slug=$post->post_name;
-?>
-
 <!--SERVICE FEATURES-->
 <div class="flex col center cm-service-features">
   <h3><?php echo $title;?></h3>
@@ -76,11 +71,12 @@
 
 <!--TEST CATEGORIES -->
 
-<?php 
-  /**
-  * Template Name: Gricel Custom Page
-  */
+<?php
+/**
+ * Template Name: Category Custom Page
+ */
 ?>
+
 <div id="primary" class="content-area">
   <main id="main" class="site-main" role="main"> 
     <?php
@@ -113,6 +109,11 @@
     </article>
     <?php
       endwhile;
+      wp_pagenavi(
+        array(
+          'query' => $arr_posts,
+        )
+      );
       endif;
     ?>
   </main><!-- .site-main -->

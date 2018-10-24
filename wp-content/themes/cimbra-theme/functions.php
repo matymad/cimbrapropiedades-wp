@@ -61,9 +61,6 @@
     }
     return $classes;
   }
-  add_filter('nav_menu_css_class', 'classCustomMenu', 1, 3);
-
-  //CATEGORIES POST
-  
+  add_filter('nav_menu_css_class', 'classCustomMenu', 1, 3);  
 
 ?>
