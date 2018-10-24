@@ -1,12 +1,31 @@
 <?php  
+  //HIGHLIGHTED IMAGES 
+  function cimbraSetup(){
+    add_theme_support('post-thumbnails');
+  }
+  add_action('after_setup_theme','cimbraSetup');
+
   //STYLES
   function cimbraStyles(){
+
     //REGISTER STYLES
     wp_register_style('normalize', get_template_directory_uri() . '/css/normalize.min.css' , array(), '8.0');
     wp_register_style('general', get_template_directory_uri() . '/css/cm-styles.min.css' , array('normalize'), '1.0');
+
     //CALL TO STYLES
     wp_enqueue_style('general');
+
+    //REGISTER JS
+    wp_enqueue_script('jqueryUpgrade', get_template_directory_uri() . '/js/jquery.js', array(), '3.3.1', true );
+    wp_enqueue_script('generalScripts', get_template_directory_uri() . '/js/cm-scripts.js', array(), '1.0.0', true );
+    wp_enqueue_script('scroll', get_template_directory_uri() . '/js/smooth-scroll.js', array(), '1.0.0', true );
+
+    //CALL TO JAVASCRIPT
+    wp_enqueue_script('jqueryUpgrade');
+    wp_enqueue_script('generalScripts');
+    wp_enqueue_script('scroll');
   }
+
   add_action( 'wp_enqueue_scripts', 'cimbraStyles');
 
   //NAVIGATION
@@ -31,7 +50,7 @@
     return $atts;
   }
   add_filter('nav_menu_link_attributes', 'add_menu_atts', 10, 3 );
-  
+
   //CUSTOM CLASSES FOR MENU LINKS
   function classCustomMenu($classes, $item, $args) {
     if($args->theme_location == 'footer-contact-menu') {
@@ -43,5 +62,8 @@
     return $classes;
   }
   add_filter('nav_menu_css_class', 'classCustomMenu', 1, 3);
+
+  //CATEGORIES POST
   
+
 ?>

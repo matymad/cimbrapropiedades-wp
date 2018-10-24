@@ -24,5 +24,6 @@
         <img alt="cimbra logo" src="<?php echo get_template_directory_uri() . '/img/'?>logo-cimbra.svg" />
       </a>
     </footer>
+    <?php wp_footer(); ?>
   </body>
 </html>
