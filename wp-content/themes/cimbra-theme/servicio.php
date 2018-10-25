@@ -22,8 +22,7 @@
   $postBtnText;
   $postBtnLink;
 
-  function gettingPostData($thisPost){
-    global $post;
+  $getting_post_data_results = function gettingPostData($thisPost){
     $post_slug=$post->post_name;
     $currentService = "servicio-" . $post_slug; 
     $mainCatID = get_cat_ID( $currentService );
@@ -32,24 +31,23 @@
       'posts_per_page' => 1,
       'category__and' => array( $mainCatID, $thisPost )
     );
+    
+    $results = array();
+    
     $postQuery = new WP_Query( $args );
     while( $postQuery->have_posts() ):
       $postQuery->the_post();
-      global $postTitle;
-      global $postContent;
-      global $postId;
-      global $postFeatImg;
-      global $postBtnText;
-      global $postBtnLink;
-      $postTitle = get_the_title();
-      $postContent = get_the_content();
-      $postId = get_the_ID();
-      $postFeatImg = get_the_post_thumbnail_url($postId);
-      $postBtnText = get_post_meta($postId, 'texto-boton', true);
-      $postBtnLink = get_post_meta($postId, 'enlace-boton', true);
+      $result = array('postTitle' => get_the_title(), 
+                      'postContent' => get_the_content(),
+                      'postId' => get_the_ID(),
+                      'postFeatImg' => get_the_post_thumbnail_url(get_the_ID()),
+                      'postBtnText' => get_post_meta(get_the_ID(), 'texto-boton', true),
+                      'postBtnLink' => get_post_meta(get_the_ID(), 'enlace-boton', true));
+      array_push($results, $result);
     endwhile;
     //CLEAN QUERY POST
     wp_reset_postdata();
+    return $results;
   }
 ?>
 
