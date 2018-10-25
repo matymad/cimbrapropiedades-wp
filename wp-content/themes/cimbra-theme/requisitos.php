@@ -1,7 +1,7 @@
 <!--TEMPLATE DESCRIPTION-->
 <?php 
   /*
-  * Template Name: Servicio Template
+  * Template Name: Requisitos Template
   * Template Post Type: post, page, product
   */
 ?>
@@ -24,8 +24,7 @@
 
   function gettingPostData($thisPost){
     global $post;
-    $post_slug=$post->post_name;
-    $currentService = "servicio-" . $post_slug; 
+    $currentService = "requisitos"; 
     $mainCatID = get_cat_ID( $currentService );
 
     $args = array(
@@ -62,7 +61,7 @@
   <!--SLIDER -->
   <div class="cm-noslider-wrapper service corretaje" style="background-image: url(<?php echo $postFeatImg; ?>);">
     <div class="flex col start cm-flex-service-noslider">
-      <h2>Servicios<br /><?php echo $postTitle; ?></h2>
+      <h2>Requisitos<br /><?php echo $postTitle; ?></h2>
       <p>
         <?php echo $postContent; ?>
       </p>
@@ -72,36 +71,24 @@
   <!--UF BAND-->
   <div class="cm-uf-band flex row center">Lunes 27 de Agosto de 2018, Valor UF: $29.238,94 CLP | $44.25 USD</div>
 
-<!--GETTING LISTA CATEGORY POST-->
+<!--GETTING DESCRIPCION CATEGORY POST-->
 <?php
-  $list = get_cat_ID('lista');
+  $list = get_cat_ID('descripcion');
   gettingPostData($list);
 ?>
+
 <!--SERVICE FEATURES-->
-<div class="flex col center cm-service-features">
+<div class="flex col center cm-required-features">
   <h3><?php echo $postTitle; ?></h3>
-  <div class="cm-serv-feat-wrapper">
-    <?php echo $postContent; ?>
+  <div class="cm-article-required">
+    <p>
+      <?php echo $postContent; ?>
+    </p>
   </div>
   <a class="button normal" data-scroll="" href="<?php echo $postBtnLink; ?>"><?php echo $postBtnText; ?></a>
 </div>
 
-<!--GETTING DESCRIPCION CATEGORY POST-->
-<?php
-  $content = get_cat_ID('descripcion');
-  gettingPostData($content);
-?>
-<!--SERVICE CONTENT-->
-<div class="flex row center cm-service-expand">
-  <div class="cm-service-exp-img corretaje" style="background-image: url(<?php echo $postFeatImg; ?>);"></div>
-  <article class="cm-service-article">
-    <h4>¿En qué consiste?</h4>
-    <h5><?php echo $postTitle; ?></h5>
-    <p>
-      <?php echo $postContent; ?>
-    </p>
-  </article>
-</div>
+
 
 <!--CONTACT SECTION-->
 <?php

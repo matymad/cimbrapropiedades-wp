@@ -1,5 +1,5 @@
 <!--CONTACT-->
-<section class="cm-contact" id="contact">
+<section class="cm-contact" id="contacto">
   <div class="flex row between cm-flex-contact">
     <h2 class="flex row start">Escríbenos y conversemos acerca de tu espacio.</h2>
     <form action="mailer.php" class="flex col end cm-contact-form" method="post">

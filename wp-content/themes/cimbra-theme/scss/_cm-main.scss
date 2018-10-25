@@ -1081,6 +1081,8 @@ a.button.naked {
     ul {
       @include clean-list;
       width: 600px;
+      @include flex-col-center;
+      align-items: flex-start!important;
       @media #{$sm}{
         width: initial;
       }
